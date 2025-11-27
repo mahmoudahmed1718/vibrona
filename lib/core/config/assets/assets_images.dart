@@ -1,14 +1,21 @@
 // ignore_for_file: prefer_single_quotes
-class Assets {
-  Assets._();
-  
+class AssetsImages {
+  AssetsImages._();
+
   /// Assets for assetsImagesAdelrahmanMosad
   /// assets/images/adelrahman_mosad.png
-  static const String assetsImagesAdelrahmanMosad = "assets/images/adelrahman_mosad.png";
+  static const String assetsImagesAdelrahmanMosad =
+      "assets/images/adelrahman_mosad.png";
+
+  /// Assets for assetsImagesAppLogoSplash
+  /// assets/images/app_logo_splash.png
+  static const String assetsImagesAppLogoSplash =
+      "assets/images/app_logo_splash.png";
 
   /// Assets for assetsImagesBakcgorundImage
   /// assets/images/bakcgorund_image.png
-  static const String assetsImagesBakcgorundImage = "assets/images/bakcgorund_image.png";
+  static const String assetsImagesBakcgorundImage =
+      "assets/images/bakcgorund_image.png";
 
   /// Assets for assetsImagesIslamSob
   /// assets/images/islam_sob.png
@@ -26,4 +33,3 @@ class Assets {
   /// assets/images/splash_logo.png
   static const String assetsImagesSplashLogo = "assets/images/splash_logo.png";
 }
-
