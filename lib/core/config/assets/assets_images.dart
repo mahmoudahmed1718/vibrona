@@ -25,6 +25,10 @@ class AssetsImages {
   /// assets/images/islam_sobhi.png
   static const String assetsImagesIslamSobhi = "assets/images/islam_sobhi.png";
 
+  /// Assets for assetsImagesLogo
+  /// assets/images/logo.png
+  static const String assetsImagesLogo = "assets/images/logo.png";
+
   /// Assets for assetsImagesMosad
   /// assets/images/mosad.png
   static const String assetsImagesMosad = "assets/images/mosad.png";
