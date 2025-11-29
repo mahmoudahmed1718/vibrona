@@ -1,11 +1,13 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:vibrona/common/widgets/button/basic_app_button.dart';
 import 'package:vibrona/core/config/assets/assets_images.dart';
 import 'package:vibrona/core/config/assets/assets_vectors.dart';
 import 'package:vibrona/core/config/theme/app_colors.dart';
+import 'package:vibrona/presentation/choose_mode/bloc/theme_cubit.dart';
 
 class ChooseMode extends StatelessWidget {
   const ChooseMode({super.key});
@@ -51,18 +53,25 @@ class ChooseMode extends StatelessWidget {
                               filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
                               child: Column(
                                 children: [
-                                  Container(
-                                    height: 80,
-                                    width: 80,
-                                    decoration: BoxDecoration(
-                                      color: Color(
-                                        0xff30393c,
-                                      ).withValues(alpha: 0.2),
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: SvgPicture.asset(
-                                      AssetsVectors.assetsVectorsMoon,
-                                      fit: BoxFit.none,
+                                  GestureDetector(
+                                    onTap: () {
+                                      context.read<ThemeCubit>().updateTheme(
+                                        ThemeMode.dark,
+                                      );
+                                    },
+                                    child: Container(
+                                      height: 80,
+                                      width: 80,
+                                      decoration: BoxDecoration(
+                                        color: Color(
+                                          0xff30393c,
+                                        ).withValues(alpha: 0.2),
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: SvgPicture.asset(
+                                        AssetsVectors.assetsVectorsMoon,
+                                        fit: BoxFit.none,
+                                      ),
                                     ),
                                   ),
                                   SizedBox(height: 15),
@@ -88,18 +97,25 @@ class ChooseMode extends StatelessWidget {
                               filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
                               child: Column(
                                 children: [
-                                  Container(
-                                    height: 80,
-                                    width: 80,
-                                    decoration: BoxDecoration(
-                                      color: Color(
-                                        0xff30393c,
-                                      ).withValues(alpha: 0.2),
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: SvgPicture.asset(
-                                      AssetsVectors.assetsVectorsSun,
-                                      fit: BoxFit.none,
+                                  GestureDetector(
+                                    onTap: () {
+                                      context.read<ThemeCubit>().updateTheme(
+                                        ThemeMode.light,
+                                      );
+                                    },
+                                    child: Container(
+                                      height: 80,
+                                      width: 80,
+                                      decoration: BoxDecoration(
+                                        color: Color(
+                                          0xff30393c,
+                                        ).withValues(alpha: 0.2),
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: SvgPicture.asset(
+                                        AssetsVectors.assetsVectorsSun,
+                                        fit: BoxFit.none,
+                                      ),
                                     ),
                                   ),
                                   SizedBox(height: 15),
