@@ -7,6 +7,7 @@ import 'package:vibrona/common/widgets/button/basic_app_button.dart';
 import 'package:vibrona/core/config/assets/assets_images.dart';
 import 'package:vibrona/core/config/assets/assets_vectors.dart';
 import 'package:vibrona/core/config/theme/app_colors.dart';
+import 'package:vibrona/presentation/auth/signup_or_signin.dart';
 import 'package:vibrona/presentation/choose_mode/bloc/theme_cubit.dart';
 
 class ChooseMode extends StatelessWidget {
@@ -140,7 +141,9 @@ class ChooseMode extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => ChooseMode()),
+                        MaterialPageRoute(
+                          builder: (context) => SignupOrSignin(),
+                        ),
                       );
                     },
                   ),
