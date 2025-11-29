@@ -8,8 +8,8 @@ class ThemeCubit extends HydratedCubit<ThemeMode> {
   @override
   ThemeMode? fromJson(Map<String, dynamic> json) {
     final themeIndex = json['themeMode'] as int?;
-    if (themeIndex != null) return null;
-    return ThemeMode.values[themeIndex!];
+    if (themeIndex == null) return null;
+    return ThemeMode.values[themeIndex];
   }
 
   @override
