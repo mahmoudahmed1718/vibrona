@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vibrona/common/widgets/button/basic_app_button.dart';
 import 'package:vibrona/core/config/assets/assets_images.dart';
 
 class GetStartedPage extends StatelessWidget {
@@ -18,19 +19,25 @@ class GetStartedPage extends StatelessWidget {
           ),
           Container(
             color: Colors.black.withValues(alpha: 0.6),
-            child: Column(
-              children: [
-                Image.asset(AssetsImages.assetsImagesLogo),
-                Spacer(),
-                Text(
-                  "Enjoy listening to your favorite music",
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: Column(
+                children: [
+                  Image.asset(AssetsImages.assetsImagesLogo),
+                  Spacer(),
+                  Text(
+                    "Enjoy listening to your favorite music",
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-              ],
+                  SizedBox(height: 24),
+                  BasicAppButton(text: 'Get Started', onPressed: () {}),
+                  SizedBox(height: 40),
+                ],
+              ),
             ),
           ),
         ],

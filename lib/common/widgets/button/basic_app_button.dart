@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vibrona/core/config/theme/app_colors.dart';
 
 class BasicAppButton extends StatelessWidget {
   const BasicAppButton({
@@ -18,7 +19,7 @@ class BasicAppButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         minimumSize: Size.fromHeight(hight ?? 80),
       ),
-      child: Text(text),
+      child: Text(text, style: TextStyle(color: AppColors.lightBackground)),
     );
   }
 }
