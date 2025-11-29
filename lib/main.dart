@@ -1,8 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:vibrona/core/config/theme/app_theme.dart';
+import 'package:vibrona/presentation/choose_mode/bloc/theme_cubit.dart';
 import 'package:vibrona/presentation/splash/page/splash_page.dart';
 
 Future<void> main() async {
@@ -19,6 +21,18 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(theme: AppTheme.lightTheme, home: SplashPage());
+    return MultiBlocProvider(
+      providers: [BlocProvider(create: (_) => ThemeCubit())],
+      child: BlocBuilder<ThemeCubit, ThemeMode>(
+        builder: (context, state) {
+          return MaterialApp(
+            theme: AppTheme.lightTheme,
+            themeMode: state,
+            darkTheme: AppTheme.darkTheme,
+            home: SplashPage(),
+          );
+        },
+      ),
+    );
   }
 }
