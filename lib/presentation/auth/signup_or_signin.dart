@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:vibrona/common/widgets/button/basic_app_button.dart';
 import 'package:vibrona/core/config/assets/assets_images.dart';
 import 'package:vibrona/core/config/assets/assets_vectors.dart';
 
@@ -20,10 +21,35 @@ class SignupOrSignin extends StatelessWidget {
               alignment: Alignment.bottomRight,
               child: SvgPicture.asset(AssetsVectors.assetsVectorsBottomPattern),
             ),
-            // Align(
-            //   alignment: Alignment.bottomLeft,
-            //   child: Image.asset(AssetsImages.assetsImagesIslamSobhi),
-            // ),
+            Align(
+              alignment: Alignment.center,
+              child: Column(
+                children: [
+                  FittedBox(
+                    fit: BoxFit.scaleDown,
+
+                    child: Image.asset(AssetsImages.assetsImagesLogo),
+                  ),
+
+                  Text(
+                    'Welcome to Vibrona',
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 16),
+                  Text(
+                    'Sign up or Sign in to continue your journey',
+                    style: TextStyle(fontSize: 16, color: Colors.grey),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 32),
+                  Row(
+                    children: [
+                      Expanded(flex: 1, child: BasicAppButton(text: 'Sign Up')),
+                    ],
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
