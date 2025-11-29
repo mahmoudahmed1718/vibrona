@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:vibrona/common/widgets/button/basic_app_button.dart';
 import 'package:vibrona/core/config/assets/assets_images.dart';
 import 'package:vibrona/core/config/assets/assets_vectors.dart';
+import 'package:vibrona/core/config/theme/app_colors.dart';
 
 class ChooseMode extends StatelessWidget {
   const ChooseMode({super.key});
@@ -43,41 +44,77 @@ class ChooseMode extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      ClipOval(
-                        child: BackdropFilter(
-                          filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-                          child: Container(
-                            height: 80,
-                            width: 80,
-                            decoration: BoxDecoration(
-                              color: Color(0xff30393c).withValues(alpha: 0.2),
-                              shape: BoxShape.circle,
-                            ),
-                            child: SvgPicture.asset(
-                              AssetsVectors.assetsVectorsMoon,
-                              fit: BoxFit.none,
+                      Column(
+                        children: [
+                          ClipOval(
+                            child: BackdropFilter(
+                              filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    height: 80,
+                                    width: 80,
+                                    decoration: BoxDecoration(
+                                      color: Color(
+                                        0xff30393c,
+                                      ).withValues(alpha: 0.2),
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: SvgPicture.asset(
+                                      AssetsVectors.assetsVectorsMoon,
+                                      fit: BoxFit.none,
+                                    ),
+                                  ),
+                                  SizedBox(height: 15),
+                                ],
+                              ),
                             ),
                           ),
-                        ),
+                          Text(
+                            "Dark Mode",
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: AppColors.gray,
+                            ),
+                          ),
+                        ],
                       ),
 
                       SizedBox(width: 50),
-                      ClipOval(
-                        child: BackdropFilter(
-                          filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-                          child: Container(
-                            height: 80,
-                            width: 80,
-                            decoration: BoxDecoration(
-                              color: Color(0xff30393c).withValues(alpha: 0.2),
-                              shape: BoxShape.circle,
-                            ),
-                            child: SvgPicture.asset(
-                              AssetsVectors.assetsVectorsSun,
-                              fit: BoxFit.none,
+                      Column(
+                        children: [
+                          ClipOval(
+                            child: BackdropFilter(
+                              filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    height: 80,
+                                    width: 80,
+                                    decoration: BoxDecoration(
+                                      color: Color(
+                                        0xff30393c,
+                                      ).withValues(alpha: 0.2),
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: SvgPicture.asset(
+                                      AssetsVectors.assetsVectorsSun,
+                                      fit: BoxFit.none,
+                                    ),
+                                  ),
+                                  SizedBox(height: 15),
+                                ],
+                              ),
                             ),
                           ),
-                        ),
+                          Text(
+                            "Light Mode",
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: AppColors.gray,
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
