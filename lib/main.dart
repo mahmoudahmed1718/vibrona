@@ -27,8 +27,8 @@ class MyApp extends StatelessWidget {
         builder: (context, state) {
           return MaterialApp(
             theme: AppTheme.lightTheme,
-            themeMode: state,
             darkTheme: AppTheme.darkTheme,
+            themeMode: state,
             home: SplashPage(),
           );
         },
