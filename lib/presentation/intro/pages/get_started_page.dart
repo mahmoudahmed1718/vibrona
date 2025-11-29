@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vibrona/common/widgets/button/basic_app_button.dart';
 import 'package:vibrona/core/config/assets/assets_images.dart';
+import 'package:vibrona/presentation/choose_mode/pages/choose_mode.dart';
 
 class GetStartedPage extends StatelessWidget {
   const GetStartedPage({super.key});
@@ -34,7 +35,15 @@ class GetStartedPage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 24),
-                  BasicAppButton(text: 'Get Started', onPressed: () {}),
+                  BasicAppButton(
+                    text: 'Get Started',
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ChooseMode()),
+                      );
+                    },
+                  ),
                   SizedBox(height: 40),
                 ],
               ),
