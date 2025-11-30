@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vibrona/common/widgets/button/appbar/basic_appbar.dart';
+import 'package:vibrona/common/widgets/appbar/basic_appbar.dart';
 import 'package:vibrona/core/config/assets/assets_images.dart';
 
 class SignInPage extends StatelessWidget {
@@ -14,6 +14,12 @@ class SignInPage extends StatelessWidget {
               child: Image.asset(AssetsImages.assetsImagesAppBarLogo),
             ),
           ),
+          const SizedBox(height: 100),
+          Text(
+            'Sign in',
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 60),
         ],
       ),
     );
