@@ -3,8 +3,15 @@ import 'package:vibrona/common/widgets/appbar/basic_appbar.dart';
 import 'package:vibrona/common/widgets/textFields/basic_text_field.dart';
 import 'package:vibrona/core/config/assets/assets_images.dart';
 
-class SignInPage extends StatelessWidget {
+class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
+
+  @override
+  State<SignInPage> createState() => _SignInPageState();
+}
+
+class _SignInPageState extends State<SignInPage> {
+  bool isobscure = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,6 +33,23 @@ class SignInPage extends StatelessWidget {
             BasicTextField(
               text: 'Enter user name or email',
               icon: Icon(Icons.email_outlined),
+            ),
+            const SizedBox(height: 24),
+            BasicTextField(
+              isobscure: isobscure,
+              text: 'Enter password',
+              icon: IconButton(
+                onPressed: () {
+                  setState(() {
+                    isobscure = !isobscure;
+                  });
+                },
+                icon: Icon(
+                  isobscure
+                      ? Icons.visibility_off_outlined
+                      : Icons.visibility_outlined,
+                ),
+              ),
             ),
           ],
         ),
