@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:vibrona/common/helper/is_dark_mode.dart';
 
 class BasicAppbar extends StatelessWidget {
-  const BasicAppbar({super.key});
+  const BasicAppbar({super.key, this.widget});
+  final Widget? widget;
   @override
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.transparent,
       elevation: 0,
-
+      centerTitle: true,
+      title: widget,
       leading: IconButton(
         onPressed: () {
           Navigator.pop(context);
