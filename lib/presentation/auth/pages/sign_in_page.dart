@@ -9,9 +9,11 @@ class SignInPage extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          // BasicAppbar(
-          //   widget: Image.asset(AssetsImages.assetsImagesLogo, scale: 4),
-          // ),
+          BasicAppbar(
+            widget: Center(
+              child: Image.asset(AssetsImages.assetsImagesAppBarLogo),
+            ),
+          ),
         ],
       ),
     );

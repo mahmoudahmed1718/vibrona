@@ -7,6 +7,10 @@ class AssetsImages {
   static const String assetsImagesAdelrahmanMosad =
       "assets/images/adelrahman_mosad.png";
 
+  /// Assets for assetsImagesAppBarLogo
+  /// assets/images/app_bar_logo.png
+  static const String assetsImagesAppBarLogo = "assets/images/app_bar_logo.png";
+
   /// Assets for assetsImagesAppLogoSplash
   /// assets/images/app_logo_splash.png
   static const String assetsImagesAppLogoSplash =
