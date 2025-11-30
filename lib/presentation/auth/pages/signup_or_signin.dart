@@ -5,6 +5,7 @@ import 'package:vibrona/common/widgets/button/appbar/basic_appbar.dart';
 import 'package:vibrona/common/widgets/button/basic_app_button.dart';
 import 'package:vibrona/core/config/assets/assets_images.dart';
 import 'package:vibrona/core/config/assets/assets_vectors.dart';
+import 'package:vibrona/presentation/auth/pages/sign_in_page.dart';
 
 class SignupOrSignin extends StatelessWidget {
   const SignupOrSignin({super.key});
@@ -70,7 +71,14 @@ class SignupOrSignin extends StatelessWidget {
                               minimumSize: Size.fromHeight(80),
                               elevation: 0,
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => SignInPage(),
+                                ),
+                              );
+                            },
 
                             child: Text(
                               'Sign In',
