@@ -23,31 +23,66 @@ class SignupOrSignin extends StatelessWidget {
             ),
             Align(
               alignment: Alignment.center,
-              child: Column(
-                children: [
-                  FittedBox(
-                    fit: BoxFit.scaleDown,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24),
+                child: Column(
+                  children: [
+                    FittedBox(
+                      fit: BoxFit.scaleDown,
 
-                    child: Image.asset(AssetsImages.assetsImagesLogo),
-                  ),
+                      child: Image.asset(AssetsImages.assetsImagesLogo),
+                    ),
 
-                  Text(
-                    'Welcome to Vibrona',
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(height: 16),
-                  Text(
-                    'Sign up or Sign in to continue your journey',
-                    style: TextStyle(fontSize: 16, color: Colors.grey),
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: 32),
-                  Row(
-                    children: [
-                      Expanded(flex: 1, child: BasicAppButton(text: 'Sign Up')),
-                    ],
-                  ),
-                ],
+                    Text(
+                      'Welcome to Vibrona',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 16),
+                    Text(
+                      'Sign up or Sign in to continue your journey',
+                      style: TextStyle(fontSize: 16, color: Colors.grey),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 32),
+                    Row(
+                      children: [
+                        Expanded(
+                          flex: 1,
+                          child: BasicAppButton(
+                            text: 'Sign Up',
+
+                            onPressed: () {},
+                          ),
+                        ),
+                        const SizedBox(width: 16),
+                        Expanded(
+                          flex: 1,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.transparent,
+                              foregroundColor: Colors.white,
+                              minimumSize: Size.fromHeight(80),
+                            ),
+
+                            onPressed: () {},
+
+                            child: Text(
+                              'Sign In',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
