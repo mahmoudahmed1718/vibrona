@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vibrona/common/helper/is_dark_mode.dart';
 
-class BasicAppbar extends StatelessWidget {
+class BasicAppbar extends StatelessWidget implements PreferredSizeWidget {
   const BasicAppbar({super.key, this.widget});
   final Widget? widget;
   @override
@@ -35,4 +35,7 @@ class BasicAppbar extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  Size get preferredSize => Size.fromHeight(kToolbarHeight);
 }

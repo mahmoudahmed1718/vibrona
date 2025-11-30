@@ -16,15 +16,13 @@ class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: BasicAppbar(
+        widget: Center(child: Image.asset(AssetsImages.assetsImagesAppBarLogo)),
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: ListView(
           children: [
-            BasicAppbar(
-              widget: Center(
-                child: Image.asset(AssetsImages.assetsImagesAppBarLogo),
-              ),
-            ),
             const SizedBox(height: 100),
             Center(
               child: Text(
