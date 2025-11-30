@@ -22,7 +22,7 @@ class BasicTextField extends StatelessWidget {
       decoration: InputDecoration(
         suffixIcon: icon,
         hintText: text,
-
+        contentPadding: const EdgeInsets.all(25),
         border: outlineBorder(),
         enabledBorder: outlineBorder(),
         focusedBorder: outlineBorder(),
