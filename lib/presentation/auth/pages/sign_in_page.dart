@@ -3,6 +3,7 @@ import 'package:vibrona/common/widgets/appbar/basic_appbar.dart';
 import 'package:vibrona/common/widgets/button/basic_app_button.dart';
 import 'package:vibrona/common/widgets/textFields/basic_text_field.dart';
 import 'package:vibrona/core/config/assets/assets_images.dart';
+import 'package:vibrona/presentation/auth/pages/sign_up_page.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
@@ -54,14 +55,19 @@ class _SignInPageState extends State<SignInPage> {
             ),
             const SizedBox(height: 40),
             BasicAppButton(text: 'Sign in', onPressed: () {}),
-            const SizedBox(height: 150),
+            const SizedBox(height: 120),
             // Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text('Not A Member?'),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SignUpPage()),
+                    );
+                  },
                   child: Text(
                     'Register Now',
                     style: TextStyle(color: Colors.blueAccent),
