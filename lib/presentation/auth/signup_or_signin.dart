@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:vibrona/common/helper/is_dark_mode.dart';
 import 'package:vibrona/common/widgets/button/basic_app_button.dart';
 import 'package:vibrona/core/config/assets/assets_images.dart';
 import 'package:vibrona/core/config/assets/assets_vectors.dart';
@@ -63,16 +64,18 @@ class SignupOrSignin extends StatelessWidget {
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.transparent,
-                              foregroundColor: Colors.white,
+                              // foregroundColor: Colors.white,
                               minimumSize: Size.fromHeight(80),
+                              elevation: 0,
                             ),
-
                             onPressed: () {},
 
                             child: Text(
                               'Sign In',
                               style: TextStyle(
-                                color: Colors.white,
+                                color: context.isDarkMode
+                                    ? Colors.white
+                                    : Colors.black,
                                 fontSize: 24,
                                 fontWeight: FontWeight.bold,
                               ),
