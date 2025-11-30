@@ -18,6 +18,7 @@ class BasicTextField extends StatelessWidget {
     return TextField(
       obscureText: isobscure ?? false,
       onChanged: onChanged,
+
       decoration: InputDecoration(
         suffixIcon: icon,
         hintText: text,

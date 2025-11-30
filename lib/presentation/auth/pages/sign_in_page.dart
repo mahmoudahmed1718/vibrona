@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vibrona/common/widgets/appbar/basic_appbar.dart';
+import 'package:vibrona/common/widgets/button/basic_app_button.dart';
 import 'package:vibrona/common/widgets/textFields/basic_text_field.dart';
 import 'package:vibrona/core/config/assets/assets_images.dart';
 
@@ -17,7 +18,7 @@ class _SignInPageState extends State<SignInPage> {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: Column(
+        child: ListView(
           children: [
             BasicAppbar(
               widget: Center(
@@ -25,9 +26,11 @@ class _SignInPageState extends State<SignInPage> {
               ),
             ),
             const SizedBox(height: 100),
-            Text(
-              'Sign in',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            Center(
+              child: Text(
+                'Sign in',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
             ),
             const SizedBox(height: 60),
             BasicTextField(
@@ -50,6 +53,24 @@ class _SignInPageState extends State<SignInPage> {
                       : Icons.visibility_outlined,
                 ),
               ),
+            ),
+            const SizedBox(height: 40),
+            BasicAppButton(text: 'Sign in', onPressed: () {}),
+            const SizedBox(height: 150),
+            // Spacer(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('Not A Member?'),
+                TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    'Register Now',
+                    style: TextStyle(color: Colors.blueAccent),
+                  ),
+                ),
+                const SizedBox(height: 40),
+              ],
             ),
           ],
         ),
