@@ -63,7 +63,7 @@ class _SignInPageState extends State<SignInPage> {
                 Text('Not A Member?'),
                 TextButton(
                   onPressed: () {
-                    Navigator.push(
+                    Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(builder: (context) => SignUpPage()),
                     );
