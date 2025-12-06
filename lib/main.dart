@@ -15,11 +15,12 @@ import 'package:vibrona/service_lecator.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await dotenv.load(fileName: ".env");
   await Supabase.initialize(
     url: Keys.supabaseUrl,
     anonKey: Keys.supabaseApiKey,
   );
-  await dotenv.load(fileName: ".env");
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   HydratedBloc.storage = await HydratedStorage.build(
