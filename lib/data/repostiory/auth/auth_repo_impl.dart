@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:vibrona/data/models/auth/create_user_req.dart';
 import 'package:vibrona/data/sources/auth/auth_firebase_service.dart';
 import 'package:vibrona/domain/repostiory/auth/auth_repo.dart';
@@ -11,7 +12,7 @@ class AuthRepoImpl extends AuthRepo {
   }
 
   @override
-  Future<void> signUp(CreateUserReq createUserReq) async {
-    await sl<AuthFirebaseService>().signUp(createUserReq);
+  Future<Either> signUp(CreateUserReq createUserReq) async {
+    return await sl<AuthFirebaseService>().signUp(createUserReq);
   }
 }
