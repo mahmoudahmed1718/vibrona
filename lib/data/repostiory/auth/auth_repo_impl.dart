@@ -7,7 +7,6 @@ import 'package:vibrona/service_lecator.dart';
 class AuthRepoImpl extends AuthRepo {
   @override
   Future<void> signIn() {
-    // TODO: implement signIn
     throw UnimplementedError();
   }
 
