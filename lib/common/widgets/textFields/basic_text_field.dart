@@ -8,14 +8,17 @@ class BasicTextField extends StatelessWidget {
     this.onChanged,
     required this.icon,
     this.isobscure,
+    this.controller,
   });
   final String text;
   final void Function(String)? onChanged;
   final Widget icon;
   final bool? isobscure;
+  final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
     return TextField(
+      controller: controller,
       obscureText: isobscure ?? false,
       onChanged: onChanged,
 

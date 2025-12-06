@@ -3,7 +3,10 @@ import 'package:vibrona/common/widgets/appbar/basic_appbar.dart';
 import 'package:vibrona/common/widgets/button/basic_app_button.dart';
 import 'package:vibrona/common/widgets/textFields/basic_text_field.dart';
 import 'package:vibrona/core/config/assets/assets_images.dart';
+import 'package:vibrona/data/models/auth/create_user_req.dart';
+import 'package:vibrona/domain/repostiory/auth/auth_repo.dart';
 import 'package:vibrona/presentation/auth/pages/sign_in_page.dart';
+import 'package:vibrona/service_lecator.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -14,6 +17,20 @@ class SignUpPage extends StatefulWidget {
 
 class _SignUpPageState extends State<SignUpPage> {
   bool isobscure = true;
+  String? name;
+  String? email;
+  String? password;
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,14 +50,29 @@ class _SignUpPageState extends State<SignUpPage> {
             ),
             const SizedBox(height: 40),
 
-            BasicTextField(text: 'Name', icon: Icon(Icons.person_outlined)),
+            BasicTextField(
+              controller: _nameController,
+              onChanged: (value) {
+                name = value;
+              },
+              text: 'Name',
+              icon: Icon(Icons.person_outlined),
+            ),
             const SizedBox(height: 24),
             BasicTextField(
+              controller: _emailController,
+              onChanged: (value) {
+                email = value;
+              },
               text: 'Enter user name or email',
               icon: Icon(Icons.email_outlined),
             ),
             const SizedBox(height: 24),
             BasicTextField(
+              controller: _passwordController,
+              onChanged: (value) {
+                password = value;
+              },
               isobscure: isobscure,
               text: 'Enter password',
               icon: IconButton(
@@ -57,7 +89,30 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
             ),
             const SizedBox(height: 40),
-            BasicAppButton(text: 'Sign Up', onPressed: () {}),
+            BasicAppButton(
+              text: 'Sign Up',
+              onPressed: () async {
+                final reslut = await sl<AuthRepo>().signUp(
+                  CreateUserReq(
+                    username: name!,
+                    password: password!,
+                    email: email!,
+                  ),
+                );
+                reslut.fold(
+                  (l) {
+                    ScaffoldMessenger.of(
+                      context,
+                    ).showSnackBar(SnackBar(content: Text(l)));
+                  },
+                  (r) {
+                    ScaffoldMessenger.of(
+                      context,
+                    ).showSnackBar(SnackBar(content: Text(r)));
+                  },
+                );
+              },
+            ),
             const SizedBox(height: 80),
             // Spacer(),
             Row(
