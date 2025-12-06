@@ -8,6 +8,7 @@ import 'package:vibrona/core/config/theme/app_theme.dart';
 import 'package:vibrona/firebase_options.dart';
 import 'package:vibrona/presentation/choose_mode/bloc/theme_cubit.dart';
 import 'package:vibrona/presentation/splash/page/splash_page.dart';
+import 'package:vibrona/service_option.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,6 +19,7 @@ Future<void> main() async {
         ? HydratedStorageDirectory.web
         : HydratedStorageDirectory((await getTemporaryDirectory()).path),
   );
+  await intializeDependencies();
   runApp(const MyApp());
 }
 
