@@ -7,6 +7,7 @@ import 'package:vibrona/data/models/auth/signin_user_req.dart';
 abstract class AuthFirebaseService {
   Future<Either> signUp(CreateUserReq createUserReq);
   Future<Either> signIn(SigninUserReq signinUserReq);
+  bool isLoggedIn();
 }
 
 class AuthFirebaseServiceImpl implements AuthFirebaseService {
@@ -49,5 +50,10 @@ class AuthFirebaseServiceImpl implements AuthFirebaseService {
       }
       return Left(e.message ?? 'An unknown error occurred');
     }
+  }
+
+  @override
+  bool isLoggedIn() {
+    return FirebaseAuth.instance.currentUser != null;
   }
 }

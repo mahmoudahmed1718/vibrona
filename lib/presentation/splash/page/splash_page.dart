@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vibrona/core/config/assets/assets_images.dart';
+import 'package:vibrona/data/sources/auth/auth_firebase_service.dart';
+import 'package:vibrona/presentation/home/pages/home_page.dart';
 import 'package:vibrona/presentation/intro/pages/get_started_page.dart';
 
 class SplashPage extends StatefulWidget {
@@ -26,12 +28,20 @@ class _SplashPageState extends State<SplashPage> {
   Future<void> navigateToNextPage() async {
     // Implement your navigation logic here
     Future.delayed(const Duration(seconds: 2), () {
-      // Example: Navigate to HomePage after 2 seconds
-      Navigator.pushReplacement(
-        // ignore: use_build_context_synchronously
-        context,
-        MaterialPageRoute(builder: (context) => GetStartedPage()),
-      );
+      var isloggedIn = AuthFirebaseServiceImpl().isLoggedIn();
+      if (isloggedIn) {
+        // Navigate to Home Page
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const HomePage()),
+        );
+      } else {
+        // Navigate to Get Started Page
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const GetStartedPage()),
+        );
+      }
     });
   }
 }
