@@ -8,7 +8,7 @@ class NewsSongs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => NewSongsCubit(),
+      create: (context) => NewSongsCubit()..fetchNewSongs(),
       child: SizedBox(
         height: MediaQuery.of(context).size.height * 0.25,
         child: BlocBuilder<NewSongsCubit, NewSongsState>(
@@ -19,7 +19,7 @@ class NewsSongs extends StatelessWidget {
             if (state is NewSongsLoaded) {
               return _songs(state.newSongs);
             } else {
-              return SizedBox();
+              return Text('Error: .message');
             }
           },
         ),
@@ -31,7 +31,10 @@ class NewsSongs extends StatelessWidget {
     return ListView.separated(
       scrollDirection: Axis.horizontal,
       itemBuilder: (context, index) {
-        return Column(children: []);
+        return Column(children: [
+        
+          ],
+        );
       },
       separatorBuilder: (context, index) {
         return SizedBox(width: 10);

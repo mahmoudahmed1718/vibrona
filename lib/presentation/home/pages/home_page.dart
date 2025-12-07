@@ -5,6 +5,7 @@ import 'package:vibrona/common/widgets/appbar/basic_appbar.dart';
 import 'package:vibrona/core/config/assets/assets_images.dart';
 import 'package:vibrona/core/config/assets/assets_vectors.dart';
 import 'package:vibrona/core/config/theme/app_colors.dart';
+import 'package:vibrona/presentation/home/widgets/news_songs.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -32,7 +33,22 @@ class _HomePageState extends State<HomePage>
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [_homeTopCard(), _tabs()],
+          children: [
+            _homeTopCard(),
+            _tabs(),
+            SizedBox(
+              height: 250,
+              child: TabBarView(
+                controller: _tabController,
+                children: [
+                  NewsSongs(),
+                  Center(child: Text('Videos Content')),
+                  Center(child: Text('Artists Content')),
+                  Center(child: Text('Podcasts Content')),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );

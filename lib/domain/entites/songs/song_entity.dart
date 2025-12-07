@@ -4,7 +4,7 @@ class SongEntity {
   final String title;
   final String artist;
   final num duration;
-  final Timestamp releaseDate;
+  final Timestamp? releaseDate;
 
   SongEntity({
     required this.title,
