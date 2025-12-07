@@ -28,6 +28,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`
 dependencies:
+  bloc: ^9.1.0
   cloud_firestore: ^6.1.0
   cupertino_icons: ^1.0.8
   dartz: ^0.10.1
@@ -40,6 +41,7 @@ dependencies:
   flutter_svg: ^2.2.3
   get_it: ^9.2.0
   hydrated_bloc: ^10.1.1
+  meta: ^1.17.0
   path_provider: ^2.1.5
   supabase_flutter: ^2.10.3
 
@@ -98,3 +100,4 @@ flutter_assets:
   assets_path: assets/images/
   output_path: lib/core/config/assets/
   filename: assets_images.dart
+
