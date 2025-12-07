@@ -25,3 +25,14 @@ class SongModel extends SongEntity {
     );
   }
 }
+
+extension SongModelExtension on SongModel {
+  SongEntity toEntity() {
+    return SongEntity(
+      title: title,
+      artist: artist,
+      duration: duration,
+      releaseDate: releaseDate,
+    );
+  }
+}
