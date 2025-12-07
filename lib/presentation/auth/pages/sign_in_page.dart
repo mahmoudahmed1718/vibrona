@@ -6,7 +6,7 @@ import 'package:vibrona/core/config/assets/assets_images.dart';
 import 'package:vibrona/data/models/auth/signin_user_req.dart';
 import 'package:vibrona/domain/repostiory/auth/auth_repo.dart';
 import 'package:vibrona/presentation/auth/pages/sign_up_page.dart';
-import 'package:vibrona/presentation/root/pages/root_page.dart';
+import 'package:vibrona/presentation/home/pages/home_page.dart';
 import 'package:vibrona/service_lecator.dart';
 
 class SignInPage extends StatefulWidget {
@@ -95,7 +95,7 @@ class _SignInPageState extends State<SignInPage> {
                     ).showSnackBar(SnackBar(content: Text(r)));
                     Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(builder: (context) => const RootPage()),
+                      MaterialPageRoute(builder: (context) => const HomePage()),
                       (route) => false,
                     );
                   },
