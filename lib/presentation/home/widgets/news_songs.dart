@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:vibrona/domain/entites/songs/song_entity.dart';
 import 'package:vibrona/presentation/home/bloc/new_song/new_songs_cubit.dart';
 
 class NewsSongs extends StatelessWidget {
@@ -16,13 +17,26 @@ class NewsSongs extends StatelessWidget {
               return const Center(child: CircularProgressIndicator());
             }
             if (state is NewSongsLoaded) {
-              return SizedBox();
+              return _songs(state.newSongs);
             } else {
-              return const Center(child: Text('Failed to load new songs'));
+              return SizedBox();
             }
           },
         ),
       ),
+    );
+  }
+
+  Widget _songs(List<SongEntity> songs) {
+    return ListView.separated(
+      scrollDirection: Axis.horizontal,
+      itemBuilder: (context, index) {
+        return Column(children: []);
+      },
+      separatorBuilder: (context, index) {
+        return SizedBox(width: 10);
+      },
+      itemCount: songs.length,
     );
   }
 }
