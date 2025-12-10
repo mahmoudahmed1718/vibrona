@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:vibrona/core/config/constant/app_urls.dart';
 import 'package:vibrona/domain/entites/songs/song_entity.dart';
 import 'package:vibrona/presentation/home/bloc/new_song/new_songs_cubit.dart';
 
@@ -30,9 +31,25 @@ class NewsSongs extends StatelessWidget {
   Widget _songs(List<SongEntity> songs) {
     return ListView.separated(
       scrollDirection: Axis.horizontal,
+
       itemBuilder: (context, index) {
-        return Column(children: [
-        
+        return Column(
+          children: [
+            Container(
+              width: 120,
+              height: 120,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                image: DecorationImage(
+                  image: NetworkImage(
+                    AppUrls.supabaseStorageUrl +
+                        AppUrls.supabaseImagesBucket +
+                        songs[index].artist.trim(),
+                  ),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
           ],
         );
       },
