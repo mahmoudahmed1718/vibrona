@@ -5,6 +5,7 @@ import 'package:vibrona/domain/entites/songs/song_entity.dart';
 
 abstract class SongFirebaseService {
   Future<Either> getNewsSongs();
+  Future<Either> getPlaylistSongs();
 }
 
 class SongFirebaseServiceImpl implements SongFirebaseService {
@@ -24,6 +25,22 @@ class SongFirebaseServiceImpl implements SongFirebaseService {
       return Right(songs);
     } catch (e) {
       return Left('Error fetching songs: $e');
+    }
+  }
+
+  @override
+  Future<Either<dynamic, dynamic>> getPlaylistSongs() async {
+    try {
+      List<SongEntity> songs = [];
+      var data = await FirebaseFirestore.instance.collection('songs').get();
+
+      for (var element in data.docs) {
+        var songModel = SongModel.fromJson(element.data());
+        songs.add(songModel.toEntity());
+      }
+      return Right(songs);
+    } catch (e) {
+      return Left('Error fetching playlist songs: $e');
     }
   }
 }
