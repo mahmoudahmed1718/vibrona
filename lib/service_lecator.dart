@@ -9,6 +9,7 @@ import 'package:vibrona/domain/repostiory/song/song_repo.dart';
 import 'package:vibrona/domain/usecases/auth/sign_in_use_case.dart';
 import 'package:vibrona/domain/usecases/auth/sign_up_use_case.dart';
 import 'package:vibrona/domain/usecases/songs/get_news_song_usecase.dart';
+import 'package:vibrona/domain/usecases/songs/get_playlist_song_use_case.dart';
 
 final sl = GetIt.instance;
 Future<void> intializeDependencies() async {
@@ -22,4 +23,5 @@ Future<void> intializeDependencies() async {
   sl.registerLazySingleton<SignUpUseCase>(() => SignUpUseCase());
   sl.registerLazySingleton<SignInUseCase>(() => SignInUseCase());
   sl.registerSingleton<GetNewsSongUsecase>(GetNewsSongUsecase());
+  sl.registerSingleton<GetPlaylistSongUseCase>(GetPlaylistSongUseCase());
 }
