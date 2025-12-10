@@ -11,7 +11,7 @@ class NewsSongs extends StatelessWidget {
     return BlocProvider(
       create: (context) => NewSongsCubit()..fetchNewSongs(),
       child: SizedBox(
-        height: MediaQuery.of(context).size.height * 0.25,
+        height: MediaQuery.of(context).size.height * 0.15,
         child: BlocBuilder<NewSongsCubit, NewSongsState>(
           builder: (context, state) {
             if (state is NewSongsLoading) {
@@ -34,20 +34,34 @@ class NewsSongs extends StatelessWidget {
 
       itemBuilder: (context, index) {
         return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              width: 120,
-              height: 120,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                image: DecorationImage(
-                  image: NetworkImage(
-                    AppUrls.supabaseStorageUrl +
-                        AppUrls.supabaseImagesBucket +
-                        songs[index].artist.trim(),
+            Expanded(
+              child: Container(
+                width: 180,
+
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  image: DecorationImage(
+                    image: NetworkImage(
+                      "${AppUrls.supabaseStorageUrl}${AppUrls.supabaseImagesBucket}${songs[index].artist.trim()}.png",
+                    ),
+                    fit: BoxFit.cover,
                   ),
-                  fit: BoxFit.cover,
                 ),
+              ),
+            ),
+            SizedBox(height: 10),
+            Text(
+              songs[index].title,
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+            ),
+            Text(
+              songs[index].artist,
+              style: TextStyle(
+                fontSize: 14,
+                color: Colors.grey,
+                fontWeight: FontWeight.w500,
               ),
             ),
           ],
