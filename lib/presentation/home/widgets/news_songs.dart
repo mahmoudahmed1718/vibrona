@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:vibrona/common/helper/is_dark_mode.dart';
 import 'package:vibrona/core/config/constant/app_urls.dart';
+import 'package:vibrona/core/config/theme/app_colors.dart';
 import 'package:vibrona/domain/entites/songs/song_entity.dart';
 import 'package:vibrona/presentation/home/bloc/new_song/new_songs_cubit.dart';
 
@@ -18,7 +20,10 @@ class NewsSongs extends StatelessWidget {
               return const Center(child: CircularProgressIndicator());
             }
             if (state is NewSongsLoaded) {
-              return _songs(state.newSongs);
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: _songs(state.newSongs),
+              );
             } else {
               return Text('Error: .message');
             }
@@ -47,6 +52,26 @@ class NewsSongs extends StatelessWidget {
                       "${AppUrls.supabaseStorageUrl}${AppUrls.supabaseImagesBucket}${songs[index].artist.trim()}.png",
                     ),
                     fit: BoxFit.cover,
+                  ),
+                ),
+                child: Align(
+                  alignment: Alignment.bottomRight,
+                  child: Container(
+                    height: 40,
+                    width: 40,
+                    transform: Matrix4.translationValues(10, 10, 0),
+                    decoration: ShapeDecoration(
+                      shape: CircleBorder(),
+                      color: context.isDarkMode
+                          ? AppColors.darkGray
+                          : Color(0xffE6E6E6),
+                    ),
+                    child: Icon(
+                      Icons.play_arrow,
+                      color: context.isDarkMode
+                          ? Color(0xff959595)
+                          : Color(0xff555555),
+                    ),
                   ),
                 ),
               ),
