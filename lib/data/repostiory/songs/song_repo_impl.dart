@@ -8,4 +8,10 @@ class SongRepoImpl extends SongRepo {
   Future<Either<dynamic, dynamic>> getNewsSongs() async {
     return await sl<SongFirebaseService>().getNewsSongs();
   }
+
+  @override
+  Future<Either<dynamic, dynamic>> getPlaylistSongs() {
+    // TODO: implement getPlaylistSongs
+    throw UnimplementedError();
+  }
 }
