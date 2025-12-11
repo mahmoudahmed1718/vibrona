@@ -37,7 +37,7 @@ class _HomePageState extends State<HomePage>
             _homeTopCard(),
             _tabs(),
             SizedBox(
-              height: 250,
+              height: MediaQuery.of(context).size.height * 0.35,
               child: TabBarView(
                 controller: _tabController,
                 children: [

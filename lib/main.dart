@@ -2,13 +2,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:vibrona/core/config/theme/app_theme.dart';
 import 'package:vibrona/firebase_options.dart';
-import 'package:vibrona/keys.dart';
 import 'package:vibrona/presentation/choose_mode/bloc/theme_cubit.dart';
 import 'package:vibrona/presentation/splash/page/splash_page.dart';
 import 'package:vibrona/service_lecator.dart';
@@ -16,11 +13,6 @@ import 'package:vibrona/service_lecator.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await dotenv.load(fileName: ".env");
-  await Supabase.initialize(
-    url: Keys.supabaseUrl,
-    anonKey: Keys.supabaseApiKey,
-  );
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   HydratedBloc.storage = await HydratedStorage.build(

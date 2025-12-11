@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vibrona/common/helper/is_dark_mode.dart';
-import 'package:vibrona/core/config/constant/app_urls.dart';
-import 'package:vibrona/core/config/theme/app_colors.dart';
+
 import 'package:vibrona/domain/entites/songs/song_entity.dart';
 import 'package:vibrona/presentation/home/bloc/new_song/new_songs_cubit.dart';
+import 'package:vibrona/presentation/home/widgets/new_song_item.dart';
 
 class NewsSongs extends StatelessWidget {
   const NewsSongs({super.key});
@@ -13,7 +12,7 @@ class NewsSongs extends StatelessWidget {
     return BlocProvider(
       create: (context) => NewSongsCubit()..fetchNewSongs(),
       child: SizedBox(
-        height: MediaQuery.of(context).size.height * 0.15,
+        // height: MediaQuery.of(context).size.height * 0.15,
         child: BlocBuilder<NewSongsCubit, NewSongsState>(
           builder: (context, state) {
             if (state is NewSongsLoading) {
@@ -38,59 +37,7 @@ class NewsSongs extends StatelessWidget {
       scrollDirection: Axis.horizontal,
 
       itemBuilder: (context, index) {
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              child: Container(
-                width: 180,
-
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  image: DecorationImage(
-                    image: NetworkImage(
-                      "${AppUrls.supabaseStorageUrl}${AppUrls.supabaseImagesBucket}${songs[index].artist.trim()}.png",
-                    ),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                child: Align(
-                  alignment: Alignment.bottomRight,
-                  child: Container(
-                    height: 40,
-                    width: 40,
-                    transform: Matrix4.translationValues(10, 10, 0),
-                    decoration: ShapeDecoration(
-                      shape: CircleBorder(),
-                      color: context.isDarkMode
-                          ? AppColors.darkGray
-                          : Color(0xffE6E6E6),
-                    ),
-                    child: Icon(
-                      Icons.play_arrow,
-                      color: context.isDarkMode
-                          ? Color(0xff959595)
-                          : Color(0xff555555),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(height: 10),
-            Text(
-              songs[index].title,
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-            ),
-            Text(
-              songs[index].artist,
-              style: TextStyle(
-                fontSize: 14,
-                color: Colors.grey,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-          ],
-        );
+        return NewSongItem(songs: songs[index]);
       },
       separatorBuilder: (context, index) {
         return SizedBox(width: 10);
